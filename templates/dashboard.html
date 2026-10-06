@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+
+<h2>Dashboard</h2>
+
+Flights : {{flight_count}}
+
+<br>
+
+Passengers : {{passenger_count}}
+
+<br>
+
+Bookings : {{booking_count}}
+
+</div>
+
+<form>
+
+<input type="text" name="search" placeholder="Search Source">
+
+<button>Search</button>
+
+</form>
+
+<table>
+
+<tr>
+
+<th>No</th>
+
+<th>Source</th>
+
+<th>Destination</th>
+
+<th>Date</th>
+
+<th>Seats</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for i in flights %}
+
+<tr>
+
+<td>{{i.flight_no}}</td>
+
+<td>{{i.source}}</td>
+
+<td>{{i.destination}}</td>
+
+<td>{{i.departure}}</td>
+
+<td>{{i.seats}}</td>
+
+<td>
+
+<a href="/edit/{{i.id}}">Edit</a>
+
+<a href="/delete/{{i.id}}">Delete</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}
